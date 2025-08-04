@@ -1,0 +1,12 @@
+<div class="card p-4">
+  <h4>Select a video/image file:</h4>
+  <input type="file" (change)="onFileSelected($event)" class="form-control mb-3" />
+
+  <button class="btn btn-primary w-100" (click)="onUpload()" [disabled]="loading || !selectedFile">
+    {{ loading ? 'Analyzing...' : 'Upload & Analyze' }}
+  </button>
+
+  <div *ngIf="result" class="alert mt-4" [ngClass]="{ 'alert-success': result === 'Authentic!', 'alert-danger': result !== 'Authentic!' }">
+    <strong>{{ result }}</strong>
+  </div>
+</div>

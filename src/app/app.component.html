@@ -1,0 +1,14 @@
+<div style="text-align: center; padding: 40px;">
+  <h1>Welcome to Deepfake Detector 🔍</h1>
+  <p style="font-size: 18px; color: #555;">Analyze videos and images to detect deepfakes in real-time using AI.</p>
+
+  <img src="assets/logo.png" alt="Logo" style="width: 200px; margin-top: 20px;" *ngIf="logoExists" />
+
+  <div style="margin-top: 30px;">
+    <button (click)="uploadFile()" style="padding: 10px 20px; font-size: 16px;">Upload Media</button>
+  </div>
+
+  <div *ngIf="fileUploaded" style="margin-top: 20px;">
+    <p>🟢 File uploaded successfully. Processing...</p>
+  </div>
+</div>
