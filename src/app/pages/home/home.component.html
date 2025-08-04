@@ -1,0 +1,48 @@
+<div class="home-wrap">
+  <h2>Detect Deepfakes with Confidence</h2>
+  <p class="lead">
+    Upload any image or video to check for AI-generated manipulations. Your media never leaves your browser until you
+    send it for analysis.
+  </p>
+
+  <div class="uploader" (drop)="onDrop($event)" (dragover)="onDragOver($event)" [class.dragover]="false">
+    <input type="file" accept="image/*,video/*" id="media" (change)="onFileChange($event)" [disabled]="loading"
+      hidden />
+    <label for="media" tabindex="0">
+      <span *ngIf="!file">Click or drag & drop an image or video</span>
+      <span *ngIf="file">
+        <span class="filename">{{file.name}}</span>
+        <span class="ftype" *ngIf="isImage">(Image)</span>
+        <span class="ftype" *ngIf="isVideo">(Video)</span>
+      </span>
+    </label>
+    <button *ngIf="file" class="remove-btn" type="button" (click)="removeFile()" [disabled]="loading">Remove</button>
+    <!-- For image preview -->
+    <div class="preview" *ngIf="isImage">
+      <img [src]="file | filePreview" alt="Image Preview" />
+    </div>
+
+    <!-- For video preview -->
+    <div class="preview" *ngIf="isVideo">
+      <video width="260" height="auto" controls [src]="file | filePreview"></video>
+    </div>
+
+  </div>
+
+  <button class="detect-btn" (click)="onSubmit()" [disabled]="!file || loading">
+    {{ loading ? 'Uploading...' : 'Upload for Detection' }}
+  </button>
+
+  <div class="result" *ngIf="result">
+    {{result}}
+  </div>
+
+  <section class="how-section">
+    <h3>How it works</h3>
+    <ul>
+      <li>Upload a photo or video</li>
+      <li>Our AI model scans for deepfake signs</li>
+      <li>Review your instant authenticity report</li>
+    </ul>
+  </section>
+</div>

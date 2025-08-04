@@ -1,0 +1,27 @@
+.about-wrap {
+  margin: 2.7rem auto 0 auto;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 18px rgba(128,66,218,0.08);
+  padding: 2.5rem 1.7rem 1.2rem 1.7rem;
+  color: #3f295a;
+}
+h2 {
+  color: #784af7;
+  margin-bottom: 1rem;
+}
+p {
+  font-size: 1.04rem;
+}
+hr {
+  border: none;
+  background: #f8e7ff;
+  height: 2px;
+  margin: 2.5rem 0 1.4rem 0;
+  border-radius: 1px;
+}
+.credits {
+  font-size: 0.97em;
+  color: #927acb;
+}
